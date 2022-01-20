@@ -1,6 +1,10 @@
 <?php
 
 use App\Http\Controllers\DailyReportController;
+use App\Http\Controllers\StuffController;
+use App\Http\Controllers\LaborMgtController;
+use App\Http\Controllers\SupplierController;
+use App\Http\Controllers\WorkDivController;
 
 /*
 |--------------------------------------------------------------------------
