@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\DailyReportController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,3 +20,12 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+Route::group(['middleware'=>'auth'],function(){
+    Route::get('dailyReport',[DailyReportController::class,'index'])->name('dailyReport.index');
+    Route::get('stuff',[StuffController::class,'index'])->name('stuff.index');
+    Route::get('workDiv',[WorkDivController::class,'index'])->name('workDiv.index');
+    Route::get('supplier',[SupplierController::class,'index'])->name('supplier.index');
+    Route::get('labor',[LaborMgtController::class,'index'])->name('labor.index');
+});
