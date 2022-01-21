@@ -13,12 +13,19 @@ class CreateWorkDivTable extends Migration
      */
     public function up()
     {
-        Schema::create('work_div', function (Blueprint $table) {
+        Schema::create('work', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('work_type_id')->nullable(false)->comment('作業内容');
-            $table->integer('work_div_id')->nullable(false)->comment('作業内容ID');
+            $table->bigInteger('work_type_id')->unsigned()->nullable(false)->comment('作業内容');
+            $table->string('identification')->nullable()->comment('作業識別番号');
             $table->text('comment')->nullable()->comment('備考');
+            $table->softDeletes();
             $table->timestamps();
+
+            $table->foreign('work_type_id')
+                  ->references('id')
+                  ->on('work_type')
+                  ->onDelete('cascade')
+                  ->onUpdate('cascade');
         });
     }
 

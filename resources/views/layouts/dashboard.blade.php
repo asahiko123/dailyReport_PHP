@@ -57,36 +57,36 @@
                 <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
                     <div class="position-sticky pt-3">
                         <ul class="nav flex-column">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="{{route('dailyReport.index')}}">
-                            <span data-feather="home"></span>
-                                <p>日報入力フォーム</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{route('stuff.index')}}">
-                            <span data-feather="user"></span>
-                                <p>スタッフマスタ</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{route('workDiv.index')}}">
-                            <span data-feather="shopping-cart"></span>
-                                <p>作業区分マスタ</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{route('supplier.index')}}">
-                            <span data-feather="users"></span>
-                                <p>取引先マスタ</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{route('labor.index')}}">
-                            <span data-feather="bar-chart-2"></span>
-                                <p>労務管理マスタ</p>
-                            </a>
-                        </li>
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="page" href="{{route('dailyReport.index')}}">
+                                <span data-feather="home"></span>
+                                    <p>日報入力フォーム</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{route('stuff.index')}}">
+                                <span data-feather="user"></span>
+                                    <p>スタッフマスタ</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{route('workDiv.index')}}">
+                                <span data-feather="shopping-cart"></span>
+                                    <p>作業区分マスタ</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{route('supplier.index')}}">
+                                <span data-feather="users"></span>
+                                    <p>取引先マスタ</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{route('labor.index')}}">
+                                <span data-feather="bar-chart-2"></span>
+                                    <p>労務管理マスタ</p>
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </nav>
@@ -98,10 +98,8 @@
             </div>
         </div>
     </div>
-    <script src="js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <script src="js/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script>
-    <script>
-      feather.replace()
-    </script>
+    <script src="js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script src="js/feather.min.js" crossorigin="anonymous"></script>
+    <script src="{{asset('js/sidebar.js')}}"></script>
 </body>
 </html>

@@ -13,11 +13,11 @@ class CreateStuffTable extends Migration
      */
     public function up()
     {
-        Schema::create('stuff', function (Blueprint $table) {
+        Schema::create('staff', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name')->nullable(false)->comment('名前');
-            $table->string('stuff_id')->nullable(false)->comment('スタッフID');
             $table->text('comment')->nullable()->comment('備考');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
