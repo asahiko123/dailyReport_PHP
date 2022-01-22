@@ -60,31 +60,31 @@
                             <li class="nav-item">
                                 <a class="nav-link" aria-current="page" href="{{route('dailyReport.index')}}">
                                 <span data-feather="home"></span>
-                                    <p>日報入力フォーム</p>
+                                    日報入力フォーム
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{route('stuff.index')}}">
                                 <span data-feather="user"></span>
-                                    <p>スタッフマスタ</p>
+                                    スタッフマスタ
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{route('workDiv.index')}}">
                                 <span data-feather="shopping-cart"></span>
-                                    <p>作業区分マスタ</p>
+                                    作業区分マスタ
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{route('supplier.index')}}">
                                 <span data-feather="users"></span>
-                                    <p>取引先マスタ</p>
+                                    取引先マスタ
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{route('labor.index')}}">
                                 <span data-feather="bar-chart-2"></span>
-                                    <p>労務管理マスタ</p>
+                                    労務管理マスタ
                                 </a>
                             </li>
                         </ul>
