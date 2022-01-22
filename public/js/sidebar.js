@@ -5,7 +5,7 @@ const value = 'active';
 const data = sessionStorage.getItem(key);
 
 if(data){
-    console.log(data);
+    
     document.querySelectorAll('.nav-link').forEach((z,index)=>{
         const flg=index==data;
         z.classList.toggle('active',flg);
@@ -16,7 +16,6 @@ if(data){
 document.addEventListener('click', (e)=>{
 
     const x = e.target;
-    console.log(x);
 
     if(x.classList.contains('nav-link')){
         document.querySelectorAll('.nav-link').forEach((y,index) =>{
