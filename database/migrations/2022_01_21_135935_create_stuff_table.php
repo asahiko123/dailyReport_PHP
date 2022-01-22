@@ -17,7 +17,6 @@ class CreateStuffTable extends Migration
             $table->bigIncrements('id');
             $table->string('name')->nullable(false)->comment('名前');
             $table->text('comment')->nullable()->comment('備考');
-            $table->softDeletes();
             $table->timestamps();
         });
     }

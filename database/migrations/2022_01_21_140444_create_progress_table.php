@@ -16,7 +16,6 @@ class CreateProgressTable extends Migration
         Schema::create('progress', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('persent')->nullable(false)->comment('進捗度');
-            $table->softDeletes();
             $table->timestamps();
         });
     }

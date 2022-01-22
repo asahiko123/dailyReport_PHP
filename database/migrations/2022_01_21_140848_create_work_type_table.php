@@ -16,7 +16,6 @@ class CreateWorkTypeTable extends Migration
         Schema::create('work_type', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('work_type')->nullable(false)->comment('作業名');
-            $table->softDeletes();
             $table->timestamps();
         });
     }

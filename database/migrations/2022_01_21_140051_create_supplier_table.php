@@ -17,7 +17,6 @@ class CreateSupplierTable extends Migration
             $table->bigIncrements('id');
             $table->string('supplier')->nullable(false)->comment('取引先');
             $table->string('project')->nullable(false)->comment('案件名');
-            $table->softDeletes();
             $table->timestamps();
         });
     }
