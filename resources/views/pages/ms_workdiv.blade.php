@@ -1,15 +1,16 @@
 @extends('layouts.dashboard')
 @section('content')
 <div class="col-md-9 px-3 pt-3 mx-auto" id="card-contents">
-        <form>
+        <form method ="POST" action ="{{route('workDiv.store')}}">
+            @csrf
             <div class="form-group"required>
                 <label for="FormTextarea">作業区分ID</label>
-                <textarea class="form-control" id="FormTextarea" rows="1" name="detail" ></textarea>
+                <textarea class="form-control" id="FormTextarea" rows="1" name="identification" ></textarea>
             </div>
 
             <div class="form-group"required>
             <label for="timeSelected1">作業区分</label>
-                <select class="form-select" aria-label="Default select example">
+                <select class="form-select" aria-label="Default select example" name="work_type_id">
                     <option selected>Open this select menu</option>
                     <option value="1">One</option>
                     <option value="2">Two</option>
@@ -19,7 +20,7 @@
 
             <div class="form-group"required>
                 <label for="FormTextarea">備考</label>
-                <textarea class="form-control" id="FormTextarea" rows="3" name="detail" ></textarea>
+                <textarea class="form-control" id="FormTextarea" rows="3" name="comment" ></textarea>
             </div>
 
             <div class="form-group d-flex justify-content-center"required>

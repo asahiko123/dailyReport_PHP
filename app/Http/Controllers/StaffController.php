@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Staff;
 
-class StuffController extends Controller
+class StaffController extends Controller
 {
      /**
      * Display a listing of the resource.
@@ -13,7 +14,7 @@ class StuffController extends Controller
      */
     public function index()
     {
-        return view('pages.ms_stuff');
+        return view('pages.ms_staff');
     }
 
     /**
@@ -32,9 +33,16 @@ class StuffController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request,Staff $staff)
     {
-        //
+        $staff->identification = $request->input('identification');
+        $staff->name = $request->input('name');
+        $staff->comment = $request->input('comment');
+
+        $staff->save();
+
+        return redirect('staff');
+
     }
 
     /**

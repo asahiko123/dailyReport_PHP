@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class WorkDiv extends Model
 {
+    protected $table = 'work';
     protected $fillable = [
         'work_type_id',
         'identification',

@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\DailyReportController;
-use App\Http\Controllers\StuffController;
+use App\Http\Controllers\StaffController;
 use App\Http\Controllers\LaborMgtController;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\WorkDivController;
@@ -28,8 +28,11 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['middleware'=>'auth'],function(){
     Route::get('dailyReport',[DailyReportController::class,'index'])->name('dailyReport.index');
-    Route::get('stuff',[StuffController::class,'index'])->name('stuff.index');
+    Route::get('staff',[StaffController::class,'index'])->name('staff.index');
+    Route::post('staff/store',[StaffController::class,'store'])->name('staff.store');
     Route::get('workDiv',[WorkDivController::class,'index'])->name('workDiv.index');
+    Route::post('workDiv/store',[WorkDivController::class,'store'])->name('workDiv.store');
     Route::get('supplier',[SupplierController::class,'index'])->name('supplier.index');
+    Route::post('supplier/store',[SupplierController::class,'store'])->name('supplier.store');
     Route::get('labor',[LaborMgtController::class,'index'])->name('labor.index');
 });

@@ -22,7 +22,7 @@ class DailyReport extends Model
     ];
 
     public function stuff(){
-        $this->belongsTo(Stuff::class);
+        $this->belongsTo(Staff::class);
     }
 
     public function work(){

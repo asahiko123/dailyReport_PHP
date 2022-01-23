@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Supplier;
 
 class SupplierController extends Controller
 {
@@ -32,9 +33,14 @@ class SupplierController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request,Supplier $supplier)
     {
-        //
+        $supplier->supplier = $request->input('supplier');
+        $supplier->project  = $request->input('project');
+
+        $supplier->save();
+
+        return redirect('supplier');
     }
 
     /**

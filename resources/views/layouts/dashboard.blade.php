@@ -64,7 +64,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{route('stuff.index')}}">
+                                <a class="nav-link" href="{{route('staff.index')}}">
                                 <span data-feather="user"></span>
                                     スタッフマスタ
                                 </a>
