@@ -12,4 +12,8 @@ class Staff extends Model
         'comment'
     ];
 
+    public function getAllStaff(){
+        return $this->all();
+    }
+
 }

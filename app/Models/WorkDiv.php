@@ -14,6 +14,10 @@ class WorkDiv extends Model
     ];
 
     public function workType(){
-        $this->belongsTo(WorkType::class);
+        return $this->belongsTo(WorkType::class);
+    }
+
+    public function getAllWorkDiv(){
+        return $this->with('WorkType')->get();
     }
 }

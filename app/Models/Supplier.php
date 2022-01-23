@@ -11,4 +11,8 @@ class Supplier extends Model
         'supplier',
         'project'
     ];
+
+    public function getAllSupplier(){
+        return $this->all();
+    }
 }

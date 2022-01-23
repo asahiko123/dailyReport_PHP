@@ -4,7 +4,8 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
-class WorkTypeTableSeeder extends Seeder
+
+class ProgressTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -13,10 +14,12 @@ class WorkTypeTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('work_type')->insert([
-            'work_type' => Str::random(5),
+       for($i = 1;$i <= 10; $i++){
+           DB::table('progress')->insert([
+            'persent' => $i * 10 . '%',
             'created_at' => now(),
             'updated_at' => now()
-        ]);
+           ]);
+       }
     }
 }

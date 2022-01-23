@@ -3,6 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Staff;
+use App\Models\Supplier;
+use App\Models\Progress;
+use App\Models\WorkDiv;
+use App\Models\DailyReport;
 
 class DailyReportController extends Controller
 {
@@ -11,9 +16,18 @@ class DailyReportController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(
+        Staff $staff,
+        Supplier $supplier,
+        Progress $progress,
+        WorkDiv $workDiv)
     {
-        return view('pages.dailyReport_form');
+        $staffs = $staff->getAllStaff();
+        $suppliers = $supplier->getAllSupplier();
+        $progresses = $progress->getAllProgress();
+        $workDivs = $workDiv->getAllWorkDiv();
+        
+        return view('pages.dailyReport_form',compact('staffs','suppliers','progresses','workDivs'));
     }
 
     /**
@@ -32,9 +46,14 @@ class DailyReportController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request,DailyReport $dailyReport)
     {
-        //
+        
+        $data = $request->all();
+
+        $dailyReport->storeDailyReport($data);
+        
+        return redirect('dailyReport');
     }
 
     /**
