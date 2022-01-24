@@ -7,3 +7,39 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
+
+@media (max-width: 768px) {
+
+    .table{
+        width: 80%;
+
+        &>thead{
+            display: none;
+        }
+
+        & th{
+            display: block;
+            text-align: center;
+            width: 100%;
+        }
+
+
+        & td{
+            display: block;
+            text-align: right;
+            width: 100%;
+            background-color:rgb(253, 251, 251);
+
+            &::before{
+
+                content: attr(data-label);
+                float: left;
+
+            }
+        }
+    }
+
+  }
+
+
+

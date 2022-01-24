@@ -20,14 +20,17 @@ class DailyReportController extends Controller
         Staff $staff,
         Supplier $supplier,
         Progress $progress,
-        WorkDiv $workDiv)
+        WorkDiv $workDiv,
+        DailyReport $dailyReport)
     {
         $staffs = $staff->getAllStaff();
         $suppliers = $supplier->getAllSupplier();
         $progresses = $progress->getAllProgress();
         $workDivs = $workDiv->getAllWorkDiv();
-        
-        return view('pages.dailyReport_form',compact('staffs','suppliers','progresses','workDivs'));
+
+        $dailyReports = $dailyReport->getAllDailyReport();
+
+        return view('pages.dailyReport_form',compact('staffs','suppliers','progresses','workDivs','dailyReports'));
     }
 
     /**
@@ -48,11 +51,11 @@ class DailyReportController extends Controller
      */
     public function store(Request $request,DailyReport $dailyReport)
     {
-        
+
         $data = $request->all();
 
         $dailyReport->storeDailyReport($data);
-        
+
         return redirect('dailyReport');
     }
 

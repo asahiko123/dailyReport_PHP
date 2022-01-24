@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\WorkDiv;
+use App\Models\WorkType;
+
 
 class WorkDivController extends Controller
 {
@@ -12,9 +14,12 @@ class WorkDivController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(WorkDiv $workDiv,WorkType $workType)
     {
-        return view('pages.ms_workDiv');
+        $workDivs = $workDiv->getAllWorkDiv();
+        $workTypes = $workType->getAllWorkType();
+
+        return view('pages.ms_workDiv',compact('workDivs','workTypes'));
     }
 
     /**

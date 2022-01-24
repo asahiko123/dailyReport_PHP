@@ -12,9 +12,10 @@ class SupplierController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Supplier $supplier)
     {
-        return view('pages.ms_supplier');
+        $suppliers = $supplier->getAllSupplier();
+        return view('pages.ms_supplier',compact('suppliers'));
     }
 
     /**

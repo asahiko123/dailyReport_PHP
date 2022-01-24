@@ -17,5 +17,25 @@
             <button type="submit" class="btn btn-primary">Submit</button>
         </div>
     </form>
+    <table class="table table-striped col-md-9 mx-auto">
+        <thead>
+            <tr>
+            <th scope="col">#</th>
+            <th scope="col">取引先</th>
+            <th scope="col">案件名</th>
+            </tr>
+        </thead>
+        @if(isset($suppliers))
+        <tbody>
+            @foreach($suppliers as $supplier)
+            <tr>
+            <th scope="row">{{$supplier->id}}</th>
+            <td data-label="取引先">{{$supplier->supplier}}</td>
+            <td data-label="スタッフ名">{{$supplier->project}}</td>
+            </tr>
+            @endforeach
+        </tbody>
+        @endif
+    </table>
 </div>
 @endsection

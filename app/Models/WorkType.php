@@ -10,4 +10,8 @@ class WorkType extends Model
     protected $fillable = [
         'work_type'
     ];
+
+    public function getAllWorkType(){
+        return $this->all();
+    }
 }

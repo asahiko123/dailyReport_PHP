@@ -28,8 +28,8 @@ class DailyReport extends Model
         return $this->belongsTo(Staff::class);
     }
 
-    public function work(){
-        return $this->belongsTo(Work::class);
+    public function workdiv(){
+        return $this->belongsTo(WorkDiv::class,'work_id');
     }
 
     public function progress(){
@@ -40,8 +40,8 @@ class DailyReport extends Model
         return $this->belongsTo(Supplier::class);
     }
 
-    public function getDailyReport(){
-        return $this->all();
+    public function getAllDailyReport(){
+        return $this->with(['Staff','Supplier','Progress','WorkDiv.WorkType'])->get();
     }
 
     public function storeDailyReport(Array $data){

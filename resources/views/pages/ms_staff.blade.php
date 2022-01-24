@@ -22,5 +22,27 @@
             <button type="submit" class="btn btn-primary">Submit</button>
         </div>
     </form>
+    <table class="table table-striped col-md-9 mx-auto">
+        <thead>
+            <tr>
+            <th scope="col">#</th>
+            <th scope="col">スタッフID</th>
+            <th scope="col">スタッフ名</th>
+            <th scope="col">備考</th>
+            </tr>
+        </thead>
+        @if(isset($staffs))
+        <tbody>
+            @foreach($staffs as $staff)
+            <tr>
+            <th scope="row">{{$staff->id}}</th>
+            <td data-label="スタッフID">{{$staff->identification}}</td>
+            <td data-label="スタッフ名">{{$staff->name}}</td>
+            <td data-label="備考">{{$staff->comment}}</td>
+            </tr>
+            @endforeach
+        </tbody>
+        @endif
+    </table>
 </div>
 @endsection

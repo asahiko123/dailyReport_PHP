@@ -12,9 +12,11 @@ class StaffController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Staff $staff)
     {
-        return view('pages.ms_staff');
+        $staffs = $staff->getAllStaff();
+
+        return view('pages.ms_staff',compact('staffs'));
     }
 
     /**
