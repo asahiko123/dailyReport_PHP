@@ -10963,9 +10963,14 @@ a.text-dark:focus {
   }
 }
 
+.date-form::after {
+  content: attr(data-from);
+  float: right;
+}
+
 @media (max-width: 768px) {
   .table {
-    width: 80%;
+    width: 100%;
   }
 
   .table > thead {

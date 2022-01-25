@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\DailyReport;
+use App\Models\Staff;
 
 class LaborMgtController extends Controller
 {
@@ -11,9 +13,11 @@ class LaborMgtController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(DailyReport $dailyReport,Staff $staff)
     {
-        return view('pages.ms_labor_mgt');
+        $dailyReports = $dailyReport->getAllDailyReport();
+        $staffs = $staff->getAllStaff();
+        return view('pages.ms_labor_mgt',compact('dailyReports','staffs'));
     }
 
     /**

@@ -7,11 +7,15 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
+.date-form::after{
+    content: attr(data-from);
+    float: right;
+}
 
 @media (max-width: 768px) {
 
     .table{
-        width: 80%;
+        width: 100%;
 
         &>thead{
             display: none;
