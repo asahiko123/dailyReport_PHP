@@ -4,6 +4,10 @@
         @parent
         <script src="{{asset('js/charts/Chart.bundle.js')}}"></script>
         <script src="{{asset('js/charts/chartjs-plugin-colorschemes.js')}}"></script>
+        <script>
+        const searchlists = JSON.parse('<?php echo $search_json; ?>');
+        const staffs = '<?php echo $staffs; ?>';
+        </script>
     @endsection
     <div class="wrapper">
         <div class="upper-wrapper">
@@ -74,7 +78,7 @@
                     <td data-label="作業日時">{{$searchlist->workday}}</td>
                     <td data-label="開始時刻">{{$searchlist->startTime}}</td>
                     <td data-label="終了時刻">{{$searchlist->endTime}}</td>
-                    <td data-label="作業時間">#</td>
+                    <td data-label="作業時間">{{(\Carbon\Carbon::parse($searchlist->startTime))->diffInMinutes(\Carbon\Carbon::parse($searchlist->endTime))}}分</td>
                     </tr>
                     @endforeach
                 </tbody>

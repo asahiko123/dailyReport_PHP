@@ -1,3 +1,15 @@
+
+console.log(searchlists);
+console.log(staffs);
+
+Object.keys(searchlists).forEach(key => {
+    searchlists[key].forEach(el => {
+        console.log(el.staff_id);
+    })
+});
+
+
+
 const labels = [
     'January',
     'February',
