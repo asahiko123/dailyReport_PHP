@@ -63,9 +63,10 @@ class DailyReport extends Model
 
     public function periodSearch(Array $data){
 
-        return $this->where('staff_id','=',$data['staff_id'])
+        return $this->with('Staff')->where('staff_id','=',$data['staff_id'])
                     ->whereDate('workday','>=',Carbon::parse($data['dayfrom'])->startOfDay())
-                    ->whereDate('workday','<=',Carbon::parse($data['dayto'])->endOfDay())->get();
+                    ->whereDate('workday','<=',Carbon::parse($data['dayto'])->endOfDay())
+                    ->get();
 
     }
 

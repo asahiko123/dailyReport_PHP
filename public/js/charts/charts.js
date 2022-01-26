@@ -2,28 +2,16 @@
 console.log(searchlists);
 console.log(staffs);
 
+const labels = [];
+
 Object.keys(searchlists).forEach(key => {
     searchlists[key].forEach(el => {
-        console.log(el.staff_id);
+        labels.push(el.staff.name);
     })
 });
 
-
-
-const labels = [
-    'January',
-    'February',
-    'March',
-    'April',
-    'May',
-    'June',
-];
-
-const DATA_COUNT = 5;
-const NUMBER_CFG = {count : DATA_COUNT,min :0,max :100};
-
 const info = {
-    labels: labels,
+    labels: [...(new Set(labels))],
     datasets: [{
     label: 'My First dataset',
     data: [0, 10, 5, 2, 20, 30, 45],

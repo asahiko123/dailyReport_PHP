@@ -5,7 +5,7 @@
         <script src="{{asset('js/charts/Chart.bundle.js')}}"></script>
         <script src="{{asset('js/charts/chartjs-plugin-colorschemes.js')}}"></script>
         <script>
-        const searchlists = JSON.parse('<?php echo $search_json; ?>');
+        const searchlists = JSON.parse('<?php echo $search_json ?? ''; ?>');
         const staffs = '<?php echo $staffs; ?>';
         </script>
     @endsection
