@@ -36,4 +36,5 @@ Route::group(['middleware'=>'auth'],function(){
     Route::get('supplier',[SupplierController::class,'index'])->name('supplier.index');
     Route::post('supplier/store',[SupplierController::class,'store'])->name('supplier.store');
     Route::get('labor',[LaborMgtController::class,'index'])->name('labor.index');
+    Route::post('search',[LaborMgtController::class,'search'])->name('labor.search');
 });

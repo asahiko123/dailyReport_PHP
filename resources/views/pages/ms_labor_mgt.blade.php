@@ -1,10 +1,10 @@
 @extends('layouts.dashboard')
 @section('content')
-@section('scripts')
-    @parent
-    <script src="{{asset('js/charts/Chart.bundle.js')}}"></script>
-    <script src="{{asset('js/charts/chartjs-plugin-colorschemes.js')}}"></script>
-@endsection
+    @section('scripts')
+        @parent
+        <script src="{{asset('js/charts/Chart.bundle.js')}}"></script>
+        <script src="{{asset('js/charts/chartjs-plugin-colorschemes.js')}}"></script>
+    @endsection
     <div class="wrapper">
         <div class="upper-wrapper">
             <div class="circlechart">
@@ -22,7 +22,8 @@
                     <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                        <form class="d-flex">
+                        <form method = "POST" action="{{route('labor.search')}}"class="d-flex">
+                            @csrf
                             <ul class="navbar-nav d-flex mx-auto">
                                 <li class="nav-item ml-2 py-2">
                                     <select class="form-select" aria-label="Default select example" name="staff_id">
@@ -33,10 +34,13 @@
                                     </select>
                                 </li>
                                 <li class="nav-item ml-2 py-2">
-                                    <input type ="date" class="form-control date-form" name ="workday" value =""id="timeSelected1" data-from="から"required>
+                                    <input type ="date" class="form-control" name ="dayfrom" value =""id="timeSelected1"required>
+                                </li>
+                                <li class="nav-item ml-2 py-2"style="color:white">
+                                    から
                                 </li>
                                 <li class="nav-item ml-2 py-2">
-                                    <input type ="date" class="form-control" name ="workday" value =""id="timeSelected1"required>
+                                    <input type ="date" class="form-control" name ="dayto" value =""id="timeSelected1"required>
                                 </li>
                                 <button class="btn btn-outline-success ml-2 py-2" type="submit">Search</button>
                             </ul>
@@ -58,22 +62,24 @@
                     <th scope="col">作業時間</th>
                     </tr>
                 </thead>
-                @if(isset($dailyReports))
+                @if(isset($searchlists))
                 <tbody>
-                    @foreach($dailyReports as $dailyReport)
+                    @foreach($searchlists as $searchlist)
                     <tr>
-                    <th scope="row">{{$dailyReport->id}}</th>
-                    <td data-label="スタッフ名">{{$dailyReport->Staff->name}}</td>
-                    <td data-label="作業区分">{{$dailyReport->WorkDiv->WorkType->work_type}}</td>
-                    <td data-label="進捗度">{{$dailyReport->Progress->persent}}</td>
-                    <td data-label="案件名">{{$dailyReport->Supplier->supplier}}_{{$dailyReport->Supplier->project}}</td>
-                    <td data-label="作業日時">{{$dailyReport->workday}}</td>
-                    <td data-label="開始時刻">{{$dailyReport->startTime}}</td>
-                    <td data-label="終了時刻">{{$dailyReport->endTime}}</td>
+                    <th scope="row">{{$searchlist->id}}</th>
+                    <td data-label="スタッフ名">{{$searchlist->Staff->name}}</td>
+                    <td data-label="作業区分">{{$searchlist->WorkDiv->WorkType->work_type}}</td>
+                    <td data-label="進捗度">{{$searchlist->Progress->persent}}</td>
+                    <td data-label="案件名">{{$searchlist->Supplier->supplier}}_{{$searchlist->Supplier->project}}</td>
+                    <td data-label="作業日時">{{$searchlist->workday}}</td>
+                    <td data-label="開始時刻">{{$searchlist->startTime}}</td>
+                    <td data-label="終了時刻">{{$searchlist->endTime}}</td>
                     <td data-label="作業時間">#</td>
                     </tr>
                     @endforeach
                 </tbody>
+                @else
+                <p>検索結果にあてはまるデータがありません</p>
                 @endif
             </table>
         </div>

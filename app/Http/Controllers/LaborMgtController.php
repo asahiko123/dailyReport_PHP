@@ -20,6 +20,17 @@ class LaborMgtController extends Controller
         return view('pages.ms_labor_mgt',compact('dailyReports','staffs'));
     }
 
+    public function search(DailyReport $dailyReport,Staff $staff,Request $request){
+
+        $inputs = $request->all();
+        $searchlists = $dailyReport->periodSearch($inputs);
+
+        $dailyReports = $dailyReport->getAllDailyReport();
+        $staffs = $staff->getAllStaff();
+
+        return view('pages.ms_labor_mgt',compact('searchlists','dailyReports','staffs'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *

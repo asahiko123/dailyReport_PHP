@@ -10,7 +10,7 @@ const labels = [
 const DATA_COUNT = 5;
 const NUMBER_CFG = {count : DATA_COUNT,min :0,max :100};
 
-const data = {
+const info = {
     labels: labels,
     datasets: [{
     label: 'My First dataset',
@@ -20,7 +20,7 @@ const data = {
 
 const config = {
     type:'doughnut',
-    data: data,
+    data: info,
     options: {
         responsive: true,
         plugins: {

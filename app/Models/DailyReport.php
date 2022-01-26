@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\softDeletes;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class DailyReport extends Model
 {
@@ -58,6 +59,14 @@ class DailyReport extends Model
         $this->save();
 
         return;
+    }
+
+    public function periodSearch(Array $data){
+
+        return $this->where('staff_id','=',$data['staff_id'])
+                    ->whereDate('workday','>=',Carbon::parse($data['dayfrom'])->startOfDay())
+                    ->whereDate('workday','<=',Carbon::parse($data['dayto'])->endOfDay())->get();
+
     }
 
 
