@@ -20,16 +20,23 @@ class LaborMgtController extends Controller
         return view('pages.ms_labor_mgt',compact('dailyReports','staffs'));
     }
 
+    /**
+     * データの検索を実行
+     */
+
     public function search(DailyReport $dailyReport,Staff $staff,Request $request){
 
         $inputs = $request->all();
         $searchlists = $dailyReport->periodSearch($inputs);
 
+        $diff = $dailyReport->workTimeDiff($searchlists);
+        $diff_json = json_encode(['diff' => $diff]);
+
         $staffs = $staff->getAllStaff();
 
         $search_json = json_encode(['searchlist' => $searchlists]);
 
-        return view('pages.ms_labor_mgt',compact('searchlists','staffs','search_json'));
+        return view('pages.ms_labor_mgt',compact('searchlists','staffs','search_json','diff_json'));
     }
 
     /**

@@ -1,20 +1,32 @@
 
 console.log(searchlists);
 console.log(staffs);
+console.log(diffs);
 
 const labels = [];
+const times = [];
+
 
 Object.keys(searchlists).forEach(key => {
     searchlists[key].forEach(el => {
-        labels.push(el.staff.name);
+        labels.push(el.work_div.work_type.work_type);
     })
 });
+
+Object.keys(diffs).forEach((key) => {
+    diffs[key].forEach(el => {
+
+        times.push(el.diff);
+    })
+})
+
+console.log(times);
 
 const info = {
     labels: [...(new Set(labels))],
     datasets: [{
     label: 'My First dataset',
-    data: [0, 10, 5, 2, 20, 30, 45],
+    data: times,
     }]
 };
 

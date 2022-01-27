@@ -63,11 +63,28 @@ class DailyReport extends Model
 
     public function periodSearch(Array $data){
 
-        return $this->with('Staff')->where('staff_id','=',$data['staff_id'])
+        return $this->with('Staff','WorkDiv.WorkType')->where('staff_id','=',$data['staff_id'])
                     ->whereDate('workday','>=',Carbon::parse($data['dayfrom'])->startOfDay())
                     ->whereDate('workday','<=',Carbon::parse($data['dayto'])->endOfDay())
                     ->get();
 
+    }
+
+    public function workTimeDiff(Object $data){
+
+        $diff = [];
+
+        for($i = 0; $i < count($data); $i++){
+
+            $workTimeDiff = Carbon::parse($data[$i]['endTime'])->diffInMinutes(Carbon::parse($data[$i]['startTime']));
+            $object = (object)[
+                'diff' => $workTimeDiff,
+                'workType' => $data[$i]['WorkDiv']['WorkType']['work_type'],
+            ];
+            array_push($diff,$object);
+        }
+
+        return $diff;
     }
 
 

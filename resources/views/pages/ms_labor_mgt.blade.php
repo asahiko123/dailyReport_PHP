@@ -4,9 +4,10 @@
         @parent
         <script src="{{asset('js/charts/Chart.bundle.js')}}"></script>
         <script src="{{asset('js/charts/chartjs-plugin-colorschemes.js')}}"></script>
-        <script>
+        <script style="display: none">
         const searchlists = JSON.parse('<?php echo $search_json ?? ''; ?>');
         const staffs = '<?php echo $staffs; ?>';
+        const diffs = JSON.parse('<?php echo $diff_json ?? ''; ?>');
         </script>
     @endsection
     <div class="wrapper">
