@@ -19,6 +19,6 @@ class WorkDiv extends Model
     }
 
     public function getAllWorkDiv(){
-        return $this->with('WorkType')->get();
+        return $this->with('WorkType')->orderBy('id','DESC')->paginate(5);
     }
 }

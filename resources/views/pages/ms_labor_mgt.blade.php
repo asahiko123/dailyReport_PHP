@@ -39,13 +39,13 @@
                                     </select>
                                 </li>
                                 <li class="nav-item ml-2 py-2">
-                                    <input type ="date" class="form-control" name ="dayfrom" value =""id="timeSelected1"required>
+                                    <input type ="date" class="form-control date-form" name ="dayfrom"required>
                                 </li>
                                 <li class="nav-item ml-2 py-2"style="color:white">
                                     から
                                 </li>
                                 <li class="nav-item ml-2 py-2">
-                                    <input type ="date" class="form-control" name ="dayto" value =""id="timeSelected1"required>
+                                    <input type ="date" class="form-control date-form" name ="dayto"required>
                                 </li>
                                 <button class="btn btn-outline-success ml-2 py-2" type="submit">Search</button>
                             </ul>
@@ -71,7 +71,7 @@
                 <tbody>
                     @foreach($searchlists as $searchlist)
                     <tr>
-                    <th scope="row">{{$searchlist->id}}</th>
+                    <th scope="col"></th>
                     <td data-label="スタッフ名">{{$searchlist->Staff->name}}</td>
                     <td data-label="作業区分">{{$searchlist->WorkDiv->WorkType->work_type}}</td>
                     <td data-label="進捗度">{{$searchlist->Progress->persent}}</td>

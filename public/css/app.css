@@ -1,5 +1,4 @@
-@charset "UTF-8";
-@import url(https://fonts.googleapis.com/css?family=Nunito);
+@import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
 
 /*!
  * Bootstrap v4.6.1 (https://getbootstrap.com/)
@@ -10963,11 +10962,6 @@ a.text-dark:focus {
   }
 }
 
-.date-form::after {
-  content: attr(data-from);
-  float: right;
-}
-
 @media (max-width: 768px) {
   .table {
     width: 100%;
@@ -10986,6 +10980,7 @@ a.text-dark:focus {
   .table td {
     display: block;
     text-align: right;
+    height: 42px;
     width: 100%;
     background-color: #fdfbfb;
   }

@@ -14,7 +14,7 @@ class StaffController extends Controller
      */
     public function index(Staff $staff)
     {
-        $staffs = $staff->getAllStaff();
+        $staffs = $staff->staffPaginate();
 
         return view('pages.ms_staff',compact('staffs'));
     }

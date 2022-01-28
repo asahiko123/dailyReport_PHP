@@ -42,7 +42,9 @@ class DailyReport extends Model
     }
 
     public function getAllDailyReport(){
-        return $this->with(['Staff','Supplier','Progress','WorkDiv.WorkType'])->get();
+        return $this->with(['Staff','Supplier','Progress','WorkDiv.WorkType'])
+                    ->orderBy('id','DESC')
+                    ->paginate(10);
     }
 
     public function storeDailyReport(Array $data){
@@ -66,6 +68,7 @@ class DailyReport extends Model
         return $this->with('Staff','WorkDiv.WorkType')->where('staff_id','=',$data['staff_id'])
                     ->whereDate('workday','>=',Carbon::parse($data['dayfrom'])->startOfDay())
                     ->whereDate('workday','<=',Carbon::parse($data['dayto'])->endOfDay())
+                    ->orderBy('id','DESC')
                     ->get();
 
     }

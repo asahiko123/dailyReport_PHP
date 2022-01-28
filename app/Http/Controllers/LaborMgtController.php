@@ -28,13 +28,12 @@ class LaborMgtController extends Controller
 
         $inputs = $request->all();
         $searchlists = $dailyReport->periodSearch($inputs);
+        $search_json = json_encode(['searchlist' => $searchlists]);
 
         $diff = $dailyReport->workTimeDiff($searchlists);
         $diff_json = json_encode($diff);
 
         $staffs = $staff->getAllStaff();
-
-        $search_json = json_encode(['searchlist' => $searchlists]);
 
         return view('pages.ms_labor_mgt',compact('searchlists','staffs','search_json','diff_json'));
     }

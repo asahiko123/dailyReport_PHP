@@ -63,7 +63,7 @@
 
             <div class="form-group"required>
                 <label for="FormTextarea">日報内容</label>
-                <textarea class="form-control" id="FormTextarea" rows="3" name="comment" ></textarea>
+                <textarea class="form-control" id="FormTextarea" rows="3" name="comment"required></textarea>
             </div>
 
 
@@ -90,7 +90,7 @@
         <tbody>
             @foreach($dailyReports as $dailyReport)
             <tr>
-            <th scope="row">{{$dailyReport->id}}</th>
+            <th scope="row"></th>
             <td data-label="スタッフ名">{{$dailyReport->Staff->name}}</td>
             <td data-label="作業区分">{{$dailyReport->WorkDiv->WorkType->work_type}}</td>
             <td data-label="進捗度">{{$dailyReport->Progress->persent}}</td>
@@ -104,5 +104,8 @@
         </tbody>
         @endif
     </table>
+    <div class="d-flex justify-content-center">
+        {{$dailyReports->links()}}
+    </div>
 </div>
 @endsection

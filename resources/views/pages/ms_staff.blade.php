@@ -35,7 +35,7 @@
         <tbody>
             @foreach($staffs as $staff)
             <tr>
-            <th scope="row">{{$staff->id}}</th>
+            <th scope="row"></th>
             <td data-label="スタッフID">{{$staff->identification}}</td>
             <td data-label="スタッフ名">{{$staff->name}}</td>
             <td data-label="備考">{{$staff->comment}}</td>
@@ -44,5 +44,8 @@
         </tbody>
         @endif
     </table>
+    <div class="d-flex justify-content-center">
+        {{$staffs->links()}}
+    </div>
 </div>
 @endsection

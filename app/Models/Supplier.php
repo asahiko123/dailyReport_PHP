@@ -13,6 +13,6 @@ class Supplier extends Model
     ];
 
     public function getAllSupplier(){
-        return $this->all();
+        return $this->orderBy('id','DESC')->paginate(10);
     }
 }

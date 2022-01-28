@@ -40,7 +40,7 @@
         <tbody>
             @foreach($workDivs as $workDiv)
             <tr>
-            <th scope="row">{{$workDiv->id}}</th>
+            <th scope="row"></th>
             <td data-label="作業区分ID">{{$workDiv->identification}}</td>
             <td data-label="作業区分">{{$workDiv->WorkType->work_type}}</td>
             <td data-label="備考">{{$workDiv->comment}}</td>
@@ -49,5 +49,8 @@
         </tbody>
         @endif
     </table>
+    <div class="d-flex justify-content-center">
+        {{$workDivs->links()}}
+    </div>
 </div>
 @endsection

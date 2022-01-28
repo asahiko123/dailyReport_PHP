@@ -29,7 +29,7 @@
         <tbody>
             @foreach($suppliers as $supplier)
             <tr>
-            <th scope="row">{{$supplier->id}}</th>
+            <th scope="row"></th>
             <td data-label="取引先">{{$supplier->supplier}}</td>
             <td data-label="スタッフ名">{{$supplier->project}}</td>
             </tr>
@@ -37,5 +37,8 @@
         </tbody>
         @endif
     </table>
+    <div class="d-flex justify-content-center">
+        {{$suppliers->links()}}
+    </div>
 </div>
 @endsection

@@ -16,4 +16,8 @@ class Staff extends Model
         return $this->all();
     }
 
+    public function staffPaginate(){
+        return $this->orderBy('id','DESC')->paginate(5);
+    }
+
 }
