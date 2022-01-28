@@ -30,7 +30,7 @@ class LaborMgtController extends Controller
         $searchlists = $dailyReport->periodSearch($inputs);
 
         $diff = $dailyReport->workTimeDiff($searchlists);
-        $diff_json = json_encode(['diff' => $diff]);
+        $diff_json = json_encode($diff);
 
         $staffs = $staff->getAllStaff();
 

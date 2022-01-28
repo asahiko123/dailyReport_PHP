@@ -1,32 +1,33 @@
-
 console.log(searchlists);
 console.log(staffs);
 console.log(diffs);
+
+/*
+Charts.js用のパラメータを準備
+
+types ...作業区分
+result...作業区分と一致するデータのdiffを取得
+timelist...resultで得られた配列それぞれの合計値を求める
+*/
 
 const labels = [];
 const times = [];
 
 
-Object.keys(searchlists).forEach(key => {
-    searchlists[key].forEach(el => {
-        labels.push(el.work_div.work_type.work_type);
-    })
-});
+const types = [...new Set(diffs.map(x =>x.workType))];
+const result = types.map(x => diffs.filter(y => y.workType == x).map(x => x.diff));
+const timelist = result.map(x => x.reduce((sum,current) => sum + current));
 
-Object.keys(diffs).forEach((key) => {
-    diffs[key].forEach(el => {
 
-        times.push(el.diff);
-    })
-})
-
-console.log(times);
+/*
+Charts.jsの設定
+*/
 
 const info = {
-    labels: [...(new Set(labels))],
+    labels: types,
     datasets: [{
     label: 'My First dataset',
-    data: times,
+    data: timelist,
     }]
 };
 
