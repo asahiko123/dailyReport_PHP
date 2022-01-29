@@ -102,5 +102,6 @@
     <script src="js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
     <script src="js/feather.min.js" crossorigin="anonymous"></script>
     <script src="{{asset('js/sidebar.js')}}"></script>
+    <script src="{{asset('js/switching.js')}}"></script>
 </body>
 </html>

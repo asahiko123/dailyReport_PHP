@@ -6,7 +6,7 @@
         <script src="{{asset('js/charts/chartjs-plugin-colorschemes.js')}}"></script>
         <script style="display: none">
         const searchlists = JSON.parse('<?php echo $search_json ?? ''; ?>');
-        const staffs = '<?php echo $staffs; ?>';
+        const searchAll = JSON.parse('<?php echo $searchAll_json ?? ''; ?>');
         const diffs = JSON.parse('<?php echo $diff_json ?? ''; ?>');
         </script>
     @endsection
@@ -15,7 +15,7 @@
             <div class="row justify-content-center">
                 <div class="col-md-8">
                     <div class="form-control clearfix">
-                        <a href="#" class="cell">個人データ</a>
+                        <a href="#" class="cell active">個人データ</a>
                         <a href="#" class="cell">全体比較</a>
                     </div>
                 </div>
@@ -28,8 +28,13 @@
                             <script src="{{asset('js/charts/charts.js')}}"></script>
                         </div>
                     </div>
-                    <div class="card" id= "stacked">
-
+                    <div class="card" id= "stacked" style="display:none">
+                        <div class="circlechart">
+                            <div class="chart-container">
+                            <canvas id="myChart-stacked"></canvas>
+                            </div>
+                            <script src="{{asset('js/charts/charts-stacked.js')}}"></script>
+                        </div>
                     </div>
                 </div>
             </div>

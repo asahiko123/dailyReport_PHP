@@ -1,5 +1,4 @@
 console.log(searchlists);
-console.log(staffs);
 console.log(diffs);
 
 /*
