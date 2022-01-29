@@ -11,12 +11,27 @@
         </script>
     @endsection
     <div class="wrapper">
-        <div class="upper-wrapper">
-            <div class="circlechart">
-                <div class="chart-container">
-                <canvas id="myChart"></canvas>
+        <div class="upper-wrapper container">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="form-control clearfix">
+                        <a href="#" class="cell">個人データ</a>
+                        <a href="#" class="cell">全体比較</a>
+                    </div>
                 </div>
-                <script src="{{asset('js/charts/charts.js')}}"></script>
+                <div class="col-md-8">
+                    <div class="card" id="circle">
+                        <div class="circlechart">
+                            <div class="chart-container">
+                            <canvas id="myChart"></canvas>
+                            </div>
+                            <script src="{{asset('js/charts/charts.js')}}"></script>
+                        </div>
+                    </div>
+                    <div class="card" id= "stacked">
+
+                    </div>
+                </div>
             </div>
         </div>
         <div class="lower-wrapper mt-5">
@@ -89,4 +104,5 @@
             </table>
         </div>
     </div>
+
 @endsection

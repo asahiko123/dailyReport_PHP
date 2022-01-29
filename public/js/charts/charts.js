@@ -12,11 +12,20 @@ timelist...resultで得られた配列それぞれの合計値を求める
 
 const labels = [];
 const times = [];
+const staff_name = [];
 
 
+Object.keys(searchlists).forEach((keys)=>{
+    searchlists[keys].forEach((el)=>{
+        staff_name.push(el.staff.name);
+    })
+})
+
+const chart_staff_name = [...new Set(staff_name)];
 const types = [...new Set(diffs.map(x =>x.workType))];
 const result = types.map(x => diffs.filter(y => y.workType == x).map(x => x.diff));
 const timelist = result.map(x => x.reduce((sum,current) => sum + current));
+
 
 
 /*
@@ -40,10 +49,10 @@ const config = {
             legend: {
                 position: 'top',
             },
-            title: {
-                display: true,
-                text: 'Charts.js Doughnut'
-            }
+        },
+        title: {
+            display: true,
+            text: chart_staff_name
         }
     },
 };

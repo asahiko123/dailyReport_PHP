@@ -10962,6 +10962,24 @@ a.text-dark:focus {
   }
 }
 
+a {
+  color: black;
+  text-decoration: none;
+}
+
+.cell {
+  display: inline;
+  width: 50%;
+  height: 100%;
+  float: left;
+  padding: 5px 0;
+}
+
+.cell.active {
+  background-color: #f6a1a1;
+  color: #fff;
+}
+
 @media (max-width: 768px) {
   .table {
     width: 100%;
