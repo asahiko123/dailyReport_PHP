@@ -5,7 +5,7 @@
         @csrf
         <div class="form-group"required>
             <label for="FormTextarea">作業区分ID</label>
-            <textarea class="form-control" id="FormTextarea" rows="1" name="identification" ></textarea>
+            <textarea class="form-control" id="FormTextarea" rows="1" name="identification" required ></textarea>
         </div>
 
         <div class="form-group"required>

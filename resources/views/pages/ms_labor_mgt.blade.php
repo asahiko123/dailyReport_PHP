@@ -3,12 +3,14 @@
     @section('scripts')
         @parent
         <script src="{{asset('js/charts/Chart.bundle.js')}}"></script>
-        <script src="{{asset('js/charts/chartjs-plugin-colorschemes.js')}}"></script>
+        <script src="{{asset('js/colorschemes/chartjs-plugin-colorschemes.js')}}"></script>
         <script style="display: none">
         const searchlists = JSON.parse('<?php echo $search_json ?? ''; ?>');
+        const diffAll = JSON.parse('<?php echo $diffAll_json ?? ''; ?>');
         const searchAll = JSON.parse('<?php echo $searchAll_json ?? ''; ?>');
         const diffs = JSON.parse('<?php echo $diff_json ?? ''; ?>');
         </script>
+        
     @endsection
     <div class="wrapper">
         <div class="upper-wrapper container">

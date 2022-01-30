@@ -90,6 +90,7 @@ class DailyReport extends Model
 
             $workTimeDiff = Carbon::parse($data[$i]['endTime'])->diffInMinutes(Carbon::parse($data[$i]['startTime']));
             $object = (object)[
+                'staff' => $data[$i]['staff']['name'],
                 'diff' => $workTimeDiff,
                 'workType' => $data[$i]['WorkDiv']['WorkType']['work_type'],
             ];

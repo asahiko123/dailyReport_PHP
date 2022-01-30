@@ -52,7 +52,8 @@ const config = {
         title: {
             display: true,
             text: chart_staff_name
-        }
+        },
+
     },
 };
 
