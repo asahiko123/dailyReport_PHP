@@ -13,17 +13,35 @@ a{
     text-decoration: none;
 }
 
+.card.graphs{
+    border-radius: 0;
+}
+
 .cell{
     display:inline;
     width: 50%;
     height: 100%;
     float: left;
     padding:5px 0;
+    text-align: center;
+    text-decoration: none;
+
+    &:hover{
+        text-decoration: none;
+    }
 
     &.active{
         background-color: rgb(246, 161, 161);
         color: #fff;
+        
     }
+
+}
+
+.tabs{
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: 0;
+    border-bottom: 0;
 }
 
 @media (max-width: 768px) {

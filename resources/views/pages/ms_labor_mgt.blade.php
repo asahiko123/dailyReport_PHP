@@ -16,13 +16,13 @@
         <div class="upper-wrapper container">
             <div class="row justify-content-center">
                 <div class="col-md-8">
-                    <div class="form-control clearfix">
+                    <div class="tabs clearfix">
                         <a href="#" class="cell active">個人データ</a>
                         <a href="#" class="cell">全体比較</a>
                     </div>
                 </div>
                 <div class="col-md-8">
-                    <div class="card" id="circle">
+                    <div class="card graphs" id="circle">
                         <div class="circlechart">
                             <div class="chart-container">
                             <canvas id="myChart"></canvas>
@@ -30,7 +30,7 @@
                             <script src="{{asset('js/charts/charts.js')}}"></script>
                         </div>
                     </div>
-                    <div class="card" id= "stacked" style="display:none">
+                    <div class="card graphs" id= "stacked" style="display:none">
                         <div class="circlechart">
                             <div class="chart-container">
                             <canvas id="myChart-stacked"></canvas>
