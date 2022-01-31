@@ -41,6 +41,12 @@ class StaffController extends Controller
         $staff->name = $request->input('name');
         $staff->comment = $request->input('comment');
 
+        $this->validate($request,[
+            'identification' => 'required|string',
+            'name' => 'required|string',
+            'comment' => 'string|max:100'
+        ]);
+
         $staff->save();
 
         return redirect('staff');

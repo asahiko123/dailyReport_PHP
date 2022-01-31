@@ -39,6 +39,11 @@ class SupplierController extends Controller
         $supplier->supplier = $request->input('supplier');
         $supplier->project  = $request->input('project');
 
+        $this->validate($request,[
+            'supplier' => 'required|string',
+            'project' => 'required|string'
+        ]);
+
         $supplier->save();
 
         return redirect('supplier');
