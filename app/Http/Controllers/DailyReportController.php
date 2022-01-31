@@ -51,10 +51,21 @@ class DailyReportController extends Controller
      */
     public function store(Request $request,DailyReport $dailyReport)
     {
-
         $data = $request->all();
 
+        $this->validate($request,[
+            'staff_id' => 'required|integer|min:0',
+            'work_id'  => 'required|integer|min:0',
+            'progress_id' => 'required|integer|min:0',
+            'supplier_id' => 'required|integer|min:0',
+            'workday' => 'required|date',
+            'startTime' => 'required',
+            'endTime' => 'required',
+            'comment' => 'required|string|min:10|max:200'
+        ]);
+
         $dailyReport->storeDailyReport($data);
+
 
         return redirect('dailyReport');
     }

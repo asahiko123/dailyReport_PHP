@@ -2,6 +2,15 @@
 @section('content')
 
 <div class="form-group px-5 pt-5" id="card-contents">
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
     <form method = "POST" action ="{{route('dailyReport.store')}}">
         @csrf
         <div class="col-md-9 mx-auto">
@@ -10,7 +19,7 @@
                 <select class="form-select" aria-label="Default select example" name="staff_id">
                     <option hidden>選択してください</option>
                     @foreach($staffs as $staff)
-                    <option value="{{$staff->id}}">{{$staff->name}}</option>
+                    <option value="{{$staff->id}}"@if(old('staff_id') == $staff->id) selected @endif>{{$staff->name}}</option>
                     @endforeach
                 </select>
             </div>
@@ -20,7 +29,7 @@
                 <select class="form-select" aria-label="Default select example"name="work_id">
                     <option hidden>選択してください</option>
                     @foreach($workDivs as $workDiv)
-                    <option value="{{$workDiv->id}}">{{$workDiv->WorkType->work_type}}</option>
+                    <option value="{{$workDiv->id}}" @if(old('work_id') == $workDiv->id) selected @endif>{{$workDiv->WorkType->work_type}}</option>
                     @endforeach
                 </select>
             </div>
@@ -30,7 +39,7 @@
                 <select class="form-select" aria-label="Default select example"name="progress_id">
                     <option hidden>選択してください</option>
                     @foreach($progresses as $progress)
-                    <option value="{{$progress->id}}">{{$progress->persent}}</option>
+                    <option value="{{$progress->id}}" @if(old('progress_id') == $progress->id) selected @endif>{{$progress->persent}}</option>
                     @endforeach
                 </select>
             </div>
@@ -40,30 +49,30 @@
                 <select class="form-select" aria-label="Default select example"name="supplier_id">
                     <option hidden>選択してください</option>
                     @foreach($suppliers as $supplier)
-                    <option value="{{$supplier->id}}">{{$supplier->supplier}}_{{$supplier->project}}</option>
+                    <option value="{{$supplier->id}}" @if(old('supplier_id') == $supplier->id) selected @endif>{{$supplier->supplier}}_{{$supplier->project}}</option>
                     @endforeach
                 </select>
             </div>
 
             <div class="form-group">
                 <label for="timeSelected1">作業日時</label>
-                <input type ="date" class="form-control" name ="workday" value =""id="timeSelected1"required>
+                <input type ="date" class="form-control" name ="workday" value ="{{old('workday')}}"id="timeSelected1"required>
             </div>
 
             <div class="form-group">
                 <label for="timeSelected2">開始時刻</label>
-                <input type ="time"class="form-control" name ="startTime" value =""id="timeSelected2"required>
+                <input type ="time"class="form-control" name ="startTime" value ="{{old('startTime')}}"id="timeSelected2"required>
             </div>
 
             <div class="form-group">
                 <label for="timeSelected3">終了時刻</label>
-                <input type ="time"class="form-control" name ="endTime" value =""id="timeSelected3"required>
+                <input type ="time"class="form-control" name ="endTime" value ="{{old('endTime')}}"id="timeSelected3"required>
             </div>
 
 
             <div class="form-group"required>
                 <label for="FormTextarea">日報内容</label>
-                <textarea class="form-control" id="FormTextarea" rows="3" name="comment"required></textarea>
+                <textarea class="form-control" id="FormTextarea" rows="3" name="comment">{{old('comment')}}</textarea>
             </div>
 
 
