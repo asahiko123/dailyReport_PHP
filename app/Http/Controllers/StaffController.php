@@ -42,9 +42,9 @@ class StaffController extends Controller
         $staff->comment = $request->input('comment');
 
         $this->validate($request,[
-            'identification' => 'required|string',
+            'identification' => 'required',
             'name' => 'required|string',
-            'comment' => 'string|max:100'
+            'comment' => 'max:100'
         ]);
 
         $staff->save();

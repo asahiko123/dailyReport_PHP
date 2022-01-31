@@ -61,7 +61,7 @@ class DailyReportController extends Controller
             'workday' => 'required|date',
             'startTime' => 'required',
             'endTime' => 'required',
-            'comment' => 'required|string|min:10|max:200'
+            'comment' => 'required|min:10|max:200'
         ]);
 
         $dailyReport->storeDailyReport($data);

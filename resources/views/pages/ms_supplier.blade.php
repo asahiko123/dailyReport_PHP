@@ -5,12 +5,12 @@
         @csrf
         <div class="form-group"required>
             <label for="FormTextarea">取引先</label>
-            <textarea class="form-control" id="FormTextarea" rows="1" name="supplier"></textarea>
+            <textarea class="form-control" id="FormTextarea" rows="1" name="supplier">{{old('supplier')}}</textarea>
         </div>
 
         <div class="form-group"required>
             <label for="FormTextarea">案件名</label>
-            <textarea class="form-control" id="FormTextarea" rows="1" name="project"></textarea>
+            <textarea class="form-control" id="FormTextarea" rows="1" name="project">{{old('project')}}</textarea>
         </div>
 
         <div class="form-group d-flex justify-content-center"required>

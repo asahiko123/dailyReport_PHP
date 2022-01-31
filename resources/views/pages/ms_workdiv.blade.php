@@ -5,7 +5,7 @@
         @csrf
         <div class="form-group"required>
             <label for="FormTextarea">作業区分ID</label>
-            <textarea class="form-control" id="FormTextarea" rows="1" name="identification" required ></textarea>
+            <textarea class="form-control" id="FormTextarea" rows="1" name="identification" required >{{old('identification')}}</textarea>
         </div>
 
         <div class="form-group"required>
@@ -13,14 +13,14 @@
             <select class="form-select" aria-label="Default select example" name="work_type_id">
                 <option hidden>選択してください</option>
                 @foreach($workTypes as $workType)
-                <option value="{{$workType->id}}">{{$workType->work_type}}</option>
+                <option value="{{$workType->id}}" @if(old('work_type_id') == $workType->id) selected @endif>{{$workType->work_type}}</option>
                 @endforeach
             </select>
         </div>
 
         <div class="form-group"required>
             <label for="FormTextarea">備考</label>
-            <textarea class="form-control" id="FormTextarea" rows="3" name="comment" ></textarea>
+            <textarea class="form-control" id="FormTextarea" rows="3" name="comment" >{{old('comment')}}</textarea>
         </div>
 
         <div class="form-group d-flex justify-content-center"required>

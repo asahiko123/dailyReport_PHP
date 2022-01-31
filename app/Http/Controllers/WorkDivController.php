@@ -46,8 +46,8 @@ class WorkDivController extends Controller
 
         $this->validate($request,[
             'identification' => 'required|string',
-            'work_type_id' => 'required|integer|min:0|unique:work',
-            'comment' => 'string|max:100'
+            'work_type_id' => 'required|integer|min:0',
+            'comment' => 'max:100'
         ]);
 
         $workDiv->save();
