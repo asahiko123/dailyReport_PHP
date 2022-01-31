@@ -8,6 +8,9 @@ use App\Models\Supplier;
 use App\Models\Progress;
 use App\Models\WorkDiv;
 use App\Models\DailyReport;
+use App\Exports\DailyReportExport; 
+use Maatwebsite\Excel\Facades\Excel;
+
 
 class DailyReportController extends Controller
 {
@@ -113,5 +116,9 @@ class DailyReportController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function download(){
+        return Excel::download(new DailyReportExport, 'dailyReport.csv');
     }
 }

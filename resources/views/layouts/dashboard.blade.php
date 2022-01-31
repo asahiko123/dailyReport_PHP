@@ -37,6 +37,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <ul class="navbar-nav px-3">
+    
                 <li class="nav-item text-nowrap">
                 <!-- <a class="nav-link" href="#">Sign out</a> -->
 
@@ -50,6 +51,7 @@
                     @csrf
                 </form>
                 </li>
+                
             </ul>
         </header>
 

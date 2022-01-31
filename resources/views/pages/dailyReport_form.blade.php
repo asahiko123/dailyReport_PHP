@@ -115,6 +115,13 @@
     </table>
     <div class="d-flex justify-content-center">
         {{$dailyReports->links()}}
+        <p class="nav-item text-nowrap">
+            @if(isset($dailyReports))
+                <a class="nav-link" href="{{ route('dailyReport.download') }}">
+                    エクセル出力
+                </a>
+            @endif
+        </p>
     </div>
 </div>
 @endsection
