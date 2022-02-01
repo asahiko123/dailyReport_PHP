@@ -31,7 +31,7 @@
         </div>
 
         <div class="form-group d-flex justify-content-center"required>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-outline-primary col-md-12">登録する</button>
         </div>
     </form>
     <table class="table table-striped col-md-9 mx-auto">

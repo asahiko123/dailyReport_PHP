@@ -90,7 +90,7 @@
 
 
             <div class="form-group d-flex justify-content-center" required>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-outline-primary col-md-12">登録する</button>
             </div>
         </div>
     </form>
@@ -123,12 +123,11 @@
             <td data-label="開始時刻">{{$dailyReport->startTime}}</td>
             <td data-label="終了時刻">{{$dailyReport->endTime}}</td>
             <td data-label="日報内容">{{$dailyReport->comment}}</td>
-            <td><a href="{{route('dailyReport.edit',['id' => $dailyReport->id])}}"><span data-feather="edit"></span></a></td>
+            <td><button class="btn btn-outline-success" onclick="location.href='{{route('dailyReport.edit',['id' => $dailyReport->id])}}'"><span data-feather="edit"></button></td>
             <td>
             <form method ="POST" action ="{{route('dailyReport.delete',['id' => $dailyReport->id])}}"name="formdelete">
                 @csrf
-                <input type ="hidden" value ="{{$dailyReport->id}}">
-                <a href="javascript:document.formdelete[<?php echo $dailyReport->id; ?>].submit()"><span data-feather="trash-2"></span></a>
+                <button type="submit" class="btn btn-outline-danger"><span data-feather="trash-2"></span></button>
             </form>
             </td>
             </tr>

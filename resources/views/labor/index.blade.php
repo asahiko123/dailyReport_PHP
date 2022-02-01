@@ -90,7 +90,7 @@
                                 <li class="nav-item ml-2 py-2">
                                     <input type ="date" class="form-control date-form" name ="dayto"required>
                                 </li>
-                                <button class="btn btn-outline-success ml-2 py-2" type="submit">Search</button>
+                                <button class="btn btn-outline-success ml-2 py-2" type="submit">検索する</button>
                             </ul>
                         </form>
                     </div>
