@@ -112,12 +112,10 @@ class LaborMgtController extends Controller
         //
     }
 
-    public function download(DailyReport $dailyReport,Request $request){
+    public function download(){
 
-        $inputs = $request->all();
-        $searchlists = $dailyReport->periodSearch($inputs);
-
-        $view = view('pages.searchdownload',compact('searchlists'));
-        return Excel::download(new DailyReportExport($view), 'searchlists.xlsx');
-    }
+        $view = view('pages.searchdownload');
+        return view('pages.searchdownload');
+    //     return Excel::download(new DailyReportExport($view), 'searchlists.xlsx');
+     }
 }

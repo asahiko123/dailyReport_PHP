@@ -1,7 +1,9 @@
 @extends('layouts.dashboard')
 @section('content')
+
     @section('scripts')
         @parent
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script src="{{asset('js/charts/Chart.bundle.js')}}"></script>
         <script src="{{asset('js/colorschemes/chartjs-plugin-colorschemes.js')}}"></script>
         <script style="display: none">
@@ -12,22 +14,24 @@
         </script>
 
     @endsection
+
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h1 class="h2">労務管理マスタ</h1>
-        <div class="btn-toolbar mb-2 mb-md-0">
+        <!-- <div class="btn-toolbar mb-2 mb-md-0">
             <div class="btn-group me-2">
             @if(isset($searchlists))
-            <button type="button" onclick="location.href='{{ route('pages.searchdownload') }}'" class="btn btn-sm btn-outline-secondary">
+            <button type="button" class="btn btn-sm btn-outline-secondary" onclick="location.href='{{route('pages.searchdownload')}}'"id="download">
             <span data-feather="file"></span>
             Excel
             </button>
+            <script src="{{asset('js/ajax.js')}}"></script>
             @endif
             </div>
             <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
             <span data-feather="calendar"></span>
             This week
             </button>
-        </div>
+        </div> -->
     </div>
     <div class="wrapper">
         <div class="upper-wrapper container">
