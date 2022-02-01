@@ -33,7 +33,7 @@ class DailyReportController extends Controller
 
         $dailyReports = $dailyReport->getAllDailyReport();
 
-        return view('pages.dailyReport_form',compact('staffs','suppliers','progresses','workDivs','dailyReports'));
+        return view('dailyReport.index',compact('staffs','suppliers','progresses','workDivs','dailyReports'));
     }
 
     /**
@@ -121,7 +121,7 @@ class DailyReportController extends Controller
     public function download(){
 
         $dailyReports = DailyReport::with(['Staff','Supplier','Progress','WorkDiv.WorkType'])->orderBy('id','DESC')->get();
-        $view = view('pages.download',compact('dailyReports'));
+        $view = view('dailyReport.download',compact('dailyReports'));
         return Excel::download(new DailyReportExport($view), 'dailyReport.xlsx');
      }
 }

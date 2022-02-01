@@ -17,7 +17,7 @@
             <div class="btn-group me-2">
             <!-- <button type="button" class="btn btn-sm btn-outline-secondary">Share</button> -->
             @if(isset($dailyReports))
-            <button type="button" onclick="location.href='{{ route('pages.download') }}'" class="btn btn-sm btn-outline-secondary">
+            <button type="button" onclick="location.href='{{ route('dailyReport.download') }}'" class="btn btn-sm btn-outline-secondary">
             <span data-feather="file"></span>
             Excel
             </button>

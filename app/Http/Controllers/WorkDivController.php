@@ -19,7 +19,7 @@ class WorkDivController extends Controller
         $workDivs = $workDiv->getAllWorkDiv();
         $workTypes = $workType->getAllWorkType();
 
-        return view('pages.ms_workDiv',compact('workDivs','workTypes'));
+        return view('workDiv.index',compact('workDivs','workTypes'));
     }
 
     /**

@@ -16,7 +16,7 @@ class StaffController extends Controller
     {
         $staffs = $staff->staffPaginate();
 
-        return view('pages.ms_staff',compact('staffs'));
+        return view('staff.index',compact('staffs'));
     }
 
     /**

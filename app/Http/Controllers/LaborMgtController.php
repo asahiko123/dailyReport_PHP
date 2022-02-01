@@ -19,7 +19,7 @@ class LaborMgtController extends Controller
     {
         $dailyReports = $dailyReport->getAllDailyReport();
         $staffs = $staff->getAllStaff();
-        return view('pages.ms_labor_mgt',compact('dailyReports','staffs'));
+        return view('labor.index',compact('dailyReports','staffs'));
     }
 
     /**
@@ -43,7 +43,7 @@ class LaborMgtController extends Controller
 
         $staffs = $staff->getAllStaff();
 
-        return view('pages.ms_labor_mgt',compact('searchlists','staffs','search_json','diff_json','diffAll_json','searchAll_json'));
+        return view('labor.index',compact('searchlists','staffs','search_json','diff_json','diffAll_json','searchAll_json'));
     }
 
     /**

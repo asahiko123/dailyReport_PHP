@@ -15,7 +15,7 @@ class SupplierController extends Controller
     public function index(Supplier $supplier)
     {
         $suppliers = $supplier->getAllSupplier();
-        return view('pages.ms_supplier',compact('suppliers'));
+        return view('supplier.index',compact('suppliers'));
     }
 
     /**
