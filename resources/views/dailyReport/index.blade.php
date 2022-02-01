@@ -15,7 +15,6 @@
         <h1 class="h2">日報入力フォーム</h1>
         <div class="btn-toolbar mb-2 mb-md-0">
             <div class="btn-group me-2">
-            <!-- <button type="button" class="btn btn-sm btn-outline-secondary">Share</button> -->
             @if(isset($dailyReports))
             <button type="button" onclick="location.href='{{ route('dailyReport.download') }}'" class="btn btn-sm btn-outline-secondary">
             <span data-feather="file"></span>
@@ -23,10 +22,6 @@
             </button>
             @endif
             </div>
-            <!-- <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
-            <span data-feather="calendar"></span>
-            This week
-            </button> -->
         </div>
     </div>
     <form method = "POST" action ="{{route('dailyReport.store')}}">
@@ -111,6 +106,8 @@
             <th scope="col">開始時刻</th>
             <th scope="col">終了時刻</th>
             <th scope="col">日報内容</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
             </tr>
         </thead>
         @if(isset($dailyReports))
@@ -126,6 +123,14 @@
             <td data-label="開始時刻">{{$dailyReport->startTime}}</td>
             <td data-label="終了時刻">{{$dailyReport->endTime}}</td>
             <td data-label="日報内容">{{$dailyReport->comment}}</td>
+            <td><a href="{{route('dailyReport.edit',['id' => $dailyReport->id])}}"><span data-feather="edit"></span></a></td>
+            <td>
+            <form method ="POST" action ="{{route('dailyReport.delete',['id' => $dailyReport->id])}}"name="formdelete">
+                @csrf
+                <input type ="hidden" value ="{{$dailyReport->id}}">
+                <a href="javascript:document.formdelete[<?php echo $dailyReport->id; ?>].submit()"><span data-feather="trash-2"></span></a>
+            </form>
+            </td>
             </tr>
             @endforeach
         </tbody>

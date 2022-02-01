@@ -90,9 +90,23 @@ class DailyReportController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(
+        $id,
+        Staff $staff,
+        Supplier $supplier,
+        Progress $progress,
+        WorkDiv $workDiv,
+        DailyReport $dailyReport)
     {
-        //
+        $staffs = $staff->getAllStaff();
+        $suppliers = $supplier->getAllSupplier();
+        $progresses = $progress->getAllProgress();
+        $workDivs = $workDiv->getAllWorkDiv();
+
+        $dailyReports = $dailyReport->getDailyReportById($id);
+
+
+        return view('dailyReport.edit',compact('staffs','suppliers','progresses','workDivs','dailyReports'));
     }
 
     /**
@@ -102,9 +116,22 @@ class DailyReportController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request,$id)
     {
-        //
+        $dailyReport = DailyReport::find($id);
+
+        $dailyReport->staff_id = $request->input('staff_id');
+        $dailyReport->work_id = $request->input('work_id');
+        $dailyReport->supplier_id = $request->input('supplier_id');
+        $dailyReport->progress_id = $request->input('progress_id');
+        $dailyReport->workday = $request->input('workday');
+        $dailyReport->startTime = $request->input('startTime');
+        $dailyReport->endTime = $request->input('endTime');
+        $dailyReport->comment = $request->input('comment');
+
+        $dailyReport->save();
+
+        return redirect('dailyReport');
     }
 
     /**
@@ -115,7 +142,10 @@ class DailyReportController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $dailyReport = DailyReport::find($id);
+        $dailyReport->delete();
+
+        return redirect('dailyReport');
     }
 
     public function download(){

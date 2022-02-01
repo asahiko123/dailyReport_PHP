@@ -47,6 +47,12 @@ class DailyReport extends Model
                     ->paginate(10);
     }
 
+    public function getDailyReportById(Int $id){
+        return $this->with(['Staff','Supplier','Progress','WorkDiv.WorkType'])
+                    ->where('id',$id)
+                    ->first();
+    }
+
     public function storeDailyReport(Array $data){
 
         $this->staff_id = $data['staff_id'];

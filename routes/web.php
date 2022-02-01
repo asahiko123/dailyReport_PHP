@@ -27,10 +27,15 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 Route::group(['middleware'=>'auth'],function(){
-    Route::get('dailyReport',[DailyReportController::class,'index'])->name('dailyReport.index');
+    Route::match(['get','post'],'dailyReport',[DailyReportController::class,'index'])->name('dailyReport.index');
+    Route::get('dailyReport/{id}/edit',[DailyReportController::class,'edit'])->name('dailyReport.edit');
+    Route::post('dailyReport/{id}/update',[DailyReportController::class,'update'])->name('dailyReport.update');
     Route::post('dailyReport/store',[DailyReportController::class,'store'])->name('dailyReport.store');
+    Route::post('dailyReport/{id}/delete',[DailyReportController::class,'destroy'])->name('dailyReport.delete');
     Route::get('dailyReport/download',[DailyReportController::class,'download'])->name('dailyReport.download');
     Route::get('staff',[StaffController::class,'index'])->name('staff.index');
+    Route::get('staff/edit',[StaffController::class,'edit'])->name('staff.edit');
+    Route::get('staff/update',[StaffController::class,'update'])->name('staff.update');
     Route::post('staff/store',[StaffController::class,'store'])->name('staff.store');
     Route::get('workDiv',[WorkDivController::class,'index'])->name('workDiv.index');
     Route::post('workDiv/store',[WorkDivController::class,'store'])->name('workDiv.store');
