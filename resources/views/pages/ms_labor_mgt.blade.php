@@ -10,8 +10,25 @@
         const searchAll = JSON.parse('<?php echo $searchAll_json ?? ''; ?>');
         const diffs = JSON.parse('<?php echo $diff_json ?? ''; ?>');
         </script>
-        
+
     @endsection
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">労務管理マスタ</h1>
+        <div class="btn-toolbar mb-2 mb-md-0">
+            <div class="btn-group me-2">
+            @if(isset($searchlists))
+            <button type="button" onclick="location.href='{{ route('pages.searchdownload') }}'" class="btn btn-sm btn-outline-secondary">
+            <span data-feather="file"></span>
+            Excel
+            </button>
+            @endif
+            </div>
+            <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
+            <span data-feather="calendar"></span>
+            This week
+            </button>
+        </div>
+    </div>
     <div class="wrapper">
         <div class="upper-wrapper container">
             <div class="row justify-content-center">

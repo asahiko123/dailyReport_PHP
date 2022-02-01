@@ -29,7 +29,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['middleware'=>'auth'],function(){
     Route::get('dailyReport',[DailyReportController::class,'index'])->name('dailyReport.index');
     Route::post('dailyReport/store',[DailyReportController::class,'store'])->name('dailyReport.store');
-    Route::get('dailyReport/download',[DailyReportController::class,'download'])->name('dailyReport.download');
+    Route::get('dailyReport/download',[DailyReportController::class,'download'])->name('pages.download');
     Route::get('staff',[StaffController::class,'index'])->name('staff.index');
     Route::post('staff/store',[StaffController::class,'store'])->name('staff.store');
     Route::get('workDiv',[WorkDivController::class,'index'])->name('workDiv.index');
@@ -37,6 +37,7 @@ Route::group(['middleware'=>'auth'],function(){
     Route::get('supplier',[SupplierController::class,'index'])->name('supplier.index');
     Route::post('supplier/store',[SupplierController::class,'store'])->name('supplier.store');
     Route::get('labor',[LaborMgtController::class,'index'])->name('labor.index');
+    Route::get('labor/download',[LaborMgtController::class,'download'])->name('pages.searchdownload');
     Route::post('search',[LaborMgtController::class,'search'])->name('labor.search');
 
 });

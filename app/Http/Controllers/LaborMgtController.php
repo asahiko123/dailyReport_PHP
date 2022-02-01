@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\DailyReport;
 use App\Models\Staff;
+use App\Exports\DailyReportExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class LaborMgtController extends Controller
 {
@@ -108,5 +110,14 @@ class LaborMgtController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function download(DailyReport $dailyReport,Request $request){
+
+        $inputs = $request->all();
+        $searchlists = $dailyReport->periodSearch($inputs);
+
+        $view = view('pages.searchdownload',compact('searchlists'));
+        return Excel::download(new DailyReportExport($view), 'searchlists.xlsx');
     }
 }

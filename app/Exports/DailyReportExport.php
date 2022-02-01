@@ -3,19 +3,28 @@
 namespace App\Exports;
 
 use App\Models\DailyReport;
-use Maatwebsite\Excel\Concerns\FromCollection;
+use Illuminate\Contracts\View\View;
+use Maatwebsite\Excel\Concerns\FromView;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 
 
-class DailyReportExport implements FromCollection,WithHeadings
+class DailyReportExport implements FromView,WithHeadings
 {
 
+    private $view;
+
+    public function __construct(View $view){
+
+        $this->view = $view;
+    }
+
     /**
-    * @return \Illuminate\Support\Collection
+     * @return View
     */
-    public function collection()
-    {
-        return DailyReport::all();
+
+    public function view():View{
+
+        return $this->view;
     }
 
     public function headings():array{

@@ -11,6 +11,24 @@
         </ul>
     </div>
     @endif
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">日報入力フォーム</h1>
+        <div class="btn-toolbar mb-2 mb-md-0">
+            <div class="btn-group me-2">
+            <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
+            @if(isset($dailyReports))
+            <button type="button" onclick="location.href='{{ route('pages.download') }}'" class="btn btn-sm btn-outline-secondary">
+            <span data-feather="file"></span>
+            Excel
+            </button>
+            @endif
+            </div>
+            <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
+            <span data-feather="calendar"></span>
+            This week
+            </button>
+        </div>
+    </div>
     <form method = "POST" action ="{{route('dailyReport.store')}}">
         @csrf
         <div class="col-md-9 mx-auto">
@@ -115,13 +133,7 @@
     </table>
     <div class="d-flex justify-content-center">
         {{$dailyReports->links()}}
-        <p class="nav-item text-nowrap">
-            @if(isset($dailyReports))
-                <a class="nav-link" href="{{ route('dailyReport.download') }}">
-                    エクセル出力
-                </a>
-            @endif
-        </p>
+
     </div>
 </div>
 @endsection
