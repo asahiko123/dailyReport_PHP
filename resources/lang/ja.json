@@ -13,5 +13,14 @@
     "A fresh verification link has been sent to your email address.": "新規の認証リンクを再度送信しました",
     "Before proceeding, please check your email for a verification link.": "送信メール内の認証リンクをから認証を行ってください。",
     "If you did not receive the email,": "メールが届いていない場合、",
-    "click here to request another.": "こちらクリックで再度メール送信します。"
+    "click here to request another.": "こちらクリックで再度メール送信します。",
+
+    
+    "Hello!":"お知らせ",
+    "Reset password":"パスワード再設定",
+    "Click button below and reset password.": "ボタンをクリックしてパスワードを再設定してください。",
+    "If you did not request a password reset, no further action is required.": "このメールに心当たりがない場合は、このまま削除してください。",
+    "If you're having trouble clicking the button above, copy and paste the URL below.":"ボタンがクリックできない場合は、下のURLをコピーしてブラウザのアドレス欄に貼り付け、直接アクセスしてください。",
+    "into your web browser: ":"ブラウザでアクセス:",
+    "Whoops!":"申し訳ありませんが、エラーです。"
 }
