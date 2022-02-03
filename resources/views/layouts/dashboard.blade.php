@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name') }}</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -37,7 +37,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <ul class="navbar-nav px-3">
-    
+
                 <li class="nav-item text-nowrap">
                 <!-- <a class="nav-link" href="#">Sign out</a> -->
 
@@ -51,7 +51,7 @@
                     @csrf
                 </form>
                 </li>
-                
+
             </ul>
         </header>
 
