@@ -10999,7 +10999,7 @@ a {
 .table .header a {
   display: flex;
   align-items: center;
-  width: 5rem;
+  width: 6rem;
   color: black;
   text-decoration: none;
 }

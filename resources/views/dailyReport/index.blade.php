@@ -102,7 +102,7 @@
             <th scope="col" class="header">@sortablelink('staff_id','スタッフ名')</th>
             <th scope="col" class="header">@sortablelink('work_id','作業区分')</th>
             <th scope="col" class="header">@sortablelink('progress_id','進捗度')</th>
-            <th scope="col" class="header"><a></a>案件名
+            <th scope="col" class="header">@sortablelink('supplier_id','案件名')</th>
             <th scope="col" class="header">@sortablelink('workday','作業日時')</th>
             <th scope="col" class="header">@sortablelink('startTime','開始時刻')</th>
             <th scope="col" class="header">@sortablelink('endTime','終了時刻')</th>
