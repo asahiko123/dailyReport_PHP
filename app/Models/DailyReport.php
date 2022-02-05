@@ -6,11 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\softDeletes;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use Kyslik\ColumnSortable\Sortable;
 
 class DailyReport extends Model
 {
 
     use SoftDeletes;
+    use Sortable;
 
     protected $table = 'daily_report';
 
@@ -23,6 +25,20 @@ class DailyReport extends Model
         'startTime',
         'endTime',
         'comment',
+    ];
+
+    public $sortable =[
+
+        'staff_id',
+        'supplier_id',
+        'work_id',
+        'progress_id',
+        'workday',
+        'startTime',
+        'endTime',
+        'created_at',
+        'updated_at'
+
     ];
 
     public function staff(){
@@ -43,6 +59,7 @@ class DailyReport extends Model
 
     public function getAllDailyReport(){
         return $this->with(['Staff','Supplier','Progress','WorkDiv.WorkType'])
+                    ->sortable()
                     ->orderBy('id','DESC')
                     ->paginate(10);
     }
@@ -74,6 +91,7 @@ class DailyReport extends Model
         return $this->with('Staff','WorkDiv.WorkType')->where('staff_id','=',$data['staff_id'])
                     ->whereDate('workday','>=',Carbon::parse($data['dayfrom'])->startOfDay())
                     ->whereDate('workday','<=',Carbon::parse($data['dayto'])->endOfDay())
+                    ->sortable()
                     ->orderBy('id','DESC')
                     ->get();
 

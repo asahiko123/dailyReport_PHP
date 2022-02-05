@@ -34,7 +34,7 @@ a{
     &.active{
         background-color: rgb(246, 161, 161);
         color: #fff;
-        
+
     }
 
 }
@@ -43,6 +43,28 @@ a{
     border: 1px solid rgba(0,0,0,.125);
     border-radius: 0;
     border-bottom: 0;
+}
+
+
+.table {
+
+    & .header{
+
+        & a{
+
+            display: flex;
+            align-items: center;
+            width: 5rem;
+            color:black;
+            text-decoration: none;
+
+        }
+
+        & i{
+            margin-left: 0.5rem;
+            color:gray;
+        }
+    }
 }
 
 @media (max-width: 768px) {
@@ -75,6 +97,7 @@ a{
 
             }
         }
+
     }
 
   }

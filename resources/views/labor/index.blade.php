@@ -14,24 +14,10 @@
         </script>
 
     @endsection
-
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h1 class="h2">労務管理マスタ</h1>
-        <!-- <div class="btn-toolbar mb-2 mb-md-0">
-            <div class="btn-group me-2">
-            @if(isset($searchlists))
-            <button type="button" class="btn btn-sm btn-outline-secondary" onclick="location.href='{{route('pages.searchdownload')}}'"id="download">
-            <span data-feather="file"></span>
-            Excel
-            </button>
-            <script src="{{asset('js/ajax.js')}}"></script>
-            @endif
-            </div>
-            <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
-            <span data-feather="calendar"></span>
-            This week
-            </button>
-        </div> -->
+
     </div>
     <div class="wrapper">
         <div class="upper-wrapper container">
@@ -100,13 +86,13 @@
                 <thead>
                     <tr>
                     <th scope="col">#</th>
-                    <th scope="col">スタッフ名</th>
-                    <th scope="col">作業区分</th>
-                    <th scope="col">進捗度</th>
-                    <th scope="col">案件名</th>
-                    <th scope="col">作業日時</th>
-                    <th scope="col">開始時刻</th>
-                    <th scope="col">終了時刻</th>
+                    <th scope="col"class="header">@sortablelink('staff_id','スタッフ名')</th>
+                    <th scope="col"class="header">@sortablelink('work_id','作業区分')</th>
+                    <th scope="col"class="header">@sortablelink('progress_id','進捗度')</th>
+                    <th scope="col"class="header">案件名</th>
+                    <th scope="col"class="header">@sortablelink('workday','作業日時')</th>
+                    <th scope="col"class="header">@sortablelink('startTime','開始時刻')</th>
+                    <th scope="col"class="header">@sortablelink('endTime','終了時刻')</th>
                     <th scope="col">作業時間</th>
                     </tr>
                 </thead>
