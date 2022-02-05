@@ -1,6 +1,7 @@
 @extends('layouts.dashboard')
 @section('content')
 
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
 <div class="form-group px-5 pt-5" id="card-contents">
     @if ($errors->any())
     <div class="alert alert-danger">
@@ -98,14 +99,14 @@
         <thead>
             <tr>
             <th scope="col">#</th>
-            <th scope="col">スタッフ名</th>
-            <th scope="col">作業区分</th>
-            <th scope="col">進捗度</th>
-            <th scope="col">案件名</th>
-            <th scope="col">作業日時</th>
-            <th scope="col">開始時刻</th>
-            <th scope="col">終了時刻</th>
-            <th scope="col">日報内容</th>
+            <th scope="col" class="header">@sortablelink('staff_id','スタッフ名')</th>
+            <th scope="col" class="header">@sortablelink('work_id','作業区分')</th>
+            <th scope="col" class="header">@sortablelink('progress_id','進捗度')</th>
+            <th scope="col" class="header"><a></a>案件名
+            <th scope="col" class="header">@sortablelink('workday','作業日時')</th>
+            <th scope="col" class="header">@sortablelink('startTime','開始時刻')</th>
+            <th scope="col" class="header">@sortablelink('endTime','終了時刻')</th>
+            <th scope="col" class="header"><a></a>日報内容</th>
             <th scope="col"></th>
             <th scope="col"></th>
             </tr>
@@ -136,7 +137,7 @@
         @endif
     </table>
     <div class="d-flex justify-content-center">
-        {{$dailyReports->links()}}
+        {{$dailyReports->appends(request()->query())->links()}}
 
     </div>
 </div>
