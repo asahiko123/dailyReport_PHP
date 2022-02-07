@@ -1,6 +1,14 @@
 @extends('layouts.dashboard')
+
+@section('scripts')
+    @parent
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="crossorigin="anonymous"></script>
+    <script src="{{asset('js/modal.js')}}"></script>
+@endsection
+
 @section('content')
 
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
 <div class="form-group px-5 pt-5" id="card-contents">
     @if ($errors->any())
     <div class="alert alert-danger">
@@ -16,7 +24,8 @@
         <div class="btn-toolbar mb-2 mb-md-0">
             <div class="btn-group me-2">
             @if(isset($dailyReports))
-            <button type="button" onclick="location.href='{{ route('dailyReport.download') }}'" class="btn btn-sm btn-outline-secondary">
+            <!-- onclick="location.href='{{ route('dailyReport.download') }}'" -->
+            <button type="button" id ="btn-modal" class="btn btn-sm btn-outline-secondary">
             <span data-feather="file"></span>
             Excel
             </button>
@@ -98,14 +107,14 @@
         <thead>
             <tr>
             <th scope="col">#</th>
-            <th scope="col">スタッフ名</th>
-            <th scope="col">作業区分</th>
-            <th scope="col">進捗度</th>
-            <th scope="col">案件名</th>
-            <th scope="col">作業日時</th>
-            <th scope="col">開始時刻</th>
-            <th scope="col">終了時刻</th>
-            <th scope="col">日報内容</th>
+            <th scope="col" class="header">@sortablelink('staff_id','スタッフ名')</th>
+            <th scope="col" class="header">@sortablelink('work_id','作業区分')</th>
+            <th scope="col" class="header">@sortablelink('progress_id','進捗度')</th>
+            <th scope="col" class="header">@sortablelink('supplier_id','案件名')</th>
+            <th scope="col" class="header">@sortablelink('workday','作業日時')</th>
+            <th scope="col" class="header">@sortablelink('startTime','開始時刻')</th>
+            <th scope="col" class="header">@sortablelink('endTime','終了時刻')</th>
+            <th scope="col" class="header"><a></a>日報内容</th>
             <th scope="col"></th>
             <th scope="col"></th>
             </tr>
@@ -136,8 +145,27 @@
         @endif
     </table>
     <div class="d-flex justify-content-center">
-        {{$dailyReports->links()}}
+        {{$dailyReports->appends(request()->query())->links()}}
+    </div>
 
+    <!--modal-->
+
+    <div id="modal-content">
+        <form action="{{ route('dailyReport.download') }}" method="post">
+            @csrf
+            <div class="modal-header d-flex flex-row-reverse">
+                <span class="modalClose" id="cancel" href="{{url('/dailyReport')}}">&times;</span>
+                <h3>出力する期間を選択してください</h3>
+            </div>
+            <div class="modal-main d-flex justify-content-center align-items-center">
+                <input type="date" name="dayfrom">
+                <p class="mx-4 my-0">~</p>
+                <input type="date" name="dayto">
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-success" id="next">出力する</button>
+            </div>
+        </form>
     </div>
 </div>
 @endsection

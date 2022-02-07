@@ -148,10 +148,14 @@ class DailyReportController extends Controller
         return redirect('dailyReport');
     }
 
-    public function download(){
+    public function download(DailyReport $dailyReport,Request $request){
 
-        $dailyReports = DailyReport::with(['Staff','Supplier','Progress','WorkDiv.WorkType'])->orderBy('id','DESC')->get();
+        $data = $request->all();
+
+        $dailyReports = $dailyReport->periodSearchAll($data);
+
         $view = view('dailyReport.download',compact('dailyReports'));
+
         return Excel::download(new DailyReportExport($view), 'dailyReport.xlsx');
      }
 }
