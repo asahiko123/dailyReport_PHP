@@ -21,7 +21,7 @@ $(window).on('load',function(){
 
             let cw = $("#modal-content").outerWidth();
 
-            let pxleft = ((w - cw)/2);
+            let pxleft = ((w - cw)*2/3);
             let pxtop  = 66;
 
 
