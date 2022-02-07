@@ -34,7 +34,7 @@ Route::group(['middleware'=>'auth'],function(){
     Route::post('dailyReport/{id}/update',[DailyReportController::class,'update'])->name('dailyReport.update');
     Route::post('dailyReport/store',[DailyReportController::class,'store'])->name('dailyReport.store');
     Route::post('dailyReport/{id}/delete',[DailyReportController::class,'destroy'])->name('dailyReport.delete');
-    Route::get('dailyReport/download',[DailyReportController::class,'download'])->name('dailyReport.download');
+    Route::post('dailyReport/download',[DailyReportController::class,'download'])->name('dailyReport.download');
     //スタッフマスタ
     Route::get('staff',[StaffController::class,'index'])->name('staff.index');
     Route::get('staff/edit',[StaffController::class,'edit'])->name('staff.edit');

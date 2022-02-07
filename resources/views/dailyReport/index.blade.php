@@ -1,4 +1,11 @@
 @extends('layouts.dashboard')
+
+@section('scripts')
+    @parent
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="crossorigin="anonymous"></script>
+    <script src="{{asset('js/modal.js')}}"></script>
+@endsection
+
 @section('content')
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
@@ -17,7 +24,8 @@
         <div class="btn-toolbar mb-2 mb-md-0">
             <div class="btn-group me-2">
             @if(isset($dailyReports))
-            <button type="button" onclick="location.href='{{ route('dailyReport.download') }}'" class="btn btn-sm btn-outline-secondary">
+            <!-- onclick="location.href='{{ route('dailyReport.download') }}'" -->
+            <button type="button" id ="btn-modal" class="btn btn-sm btn-outline-secondary">
             <span data-feather="file"></span>
             Excel
             </button>
@@ -138,7 +146,26 @@
     </table>
     <div class="d-flex justify-content-center">
         {{$dailyReports->appends(request()->query())->links()}}
+    </div>
 
+    <!--modal-->
+
+    <div id="modal-content">
+        <form action="{{ route('dailyReport.download') }}" method="post">
+            @csrf
+            <div class="modal-header d-flex flex-row-reverse">
+                <span class="modalClose" id="cancel" href="{{url('/dailyReport')}}">&times;</span>
+                <h3>出力する期間を選択してください</h3>
+            </div>
+            <div class="modal-main d-flex justify-content-center align-items-center">
+                <input type="date" name="dayfrom">
+                <p class="mx-4 my-0">~</p>
+                <input type="date" name="dayto">
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-success" id="next">出力する</button>
+            </div>
+        </form>
     </div>
 </div>
 @endsection

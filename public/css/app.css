@@ -11009,6 +11009,53 @@ a {
   color: gray;
 }
 
+.btn {
+  text-align: center;
+}
+
+.btn-link {
+  background-color: transparent;
+}
+
+.modal-footer {
+  padding: 15px;
+}
+
+#cancel {
+  cursor: pointer;
+}
+
+#modal-content {
+  display: none;
+  width: 50%;
+  margin: 1.5em auto 0;
+  padding: 10px 20px;
+  border: 2px solid #aaa;
+  background: #fff;
+  z-index: 2;
+  position: fixed;
+  border-radius: 0.25rem;
+}
+
+#modal a {
+  text-decoration: underline;
+}
+
+#modal a:hover {
+  cursor: pointer;
+}
+
+#modal-overlay {
+  z-index: 1;
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 120%;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
 @media (max-width: 768px) {
   .table {
     width: 100%;
@@ -11035,6 +11082,18 @@ a {
   .table td::before {
     content: attr(data-label);
     float: left;
+  }
+
+  #modal-content {
+    display: none;
+    width: 100%;
+    margin: 1.5em auto 0;
+    padding: 10px 20px;
+    border: 2px solid #aaa;
+    background: #fff;
+    z-index: 2;
+    position: fixed;
+    border-radius: 0.25rem;
   }
 }
 
